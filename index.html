@@ -4,37 +4,40 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width", initial-scale=1.0>
         <title>Covid-19 in Slovenia</title>
-        <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto+Slab:400,700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet" type="text/css">
     </head>
 
     <body>
         <main>
             <h3>Covid-19 stanje v Sloveniji<br>na dan: <span id="date"></span></h3>
-            <table class="table table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="label">Testi na dan: HAG</td>
-                        <td class="value" id="tests-hag"></td>
-                    </tr>
-                    <tr>
-                        <td class="label">Testi na dan: PCR</td>
-                        <td class="value" id="tests-pcr"></td>
-                    </tr>
-                    <tr>
-                        <td class="label">Aktivni primeri na dan</td>
-                        <td class="value" id="active-cases"></td>
-                    </tr>
-                    <tr>
-                        <td class="label">Število umrlih</td>
-                        <td class="value" id="total-deaths"></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table table-bordered">
+                <div class="table-row">
+                    <div class="label">Testi na dan: HAG</div>
+                    <div class="value" id="tests-hag"></div>
+                </div>
+                <div class="table-row">
+                    <div class="label">Testi na dan: PCR</div>
+                    <div class="value" id="tests-pcr"></div>
+                </div>
+                <div class="table-row">
+                    <div class="label">Aktivni primeri na dan</div>
+                    <div class="value" id="active-cases"></div>
+                </div>
+                <div class="table-row">
+                    <div class="label">Število umrlih</div>
+                    <div class="value" id="total-deaths"></div>
+                </div>
+            </div>
         </main>
         <footer>
-            <p>Vir podatkov:</p>
-            <a href="https://covid-19.sledilnik.org/sl/stats" target="_blank">COVID-19 Sledilnik</a>
+            <img src="./icons/coronavirus-icon.png" alt="" style="width: 50px">
+            <div class="data-source-container">
+                <p>Vir podatkov:</p>
+                <a href="https://covid-19.sledilnik.org/sl/stats" target="_blank">COVID-19 Sledilnik</a>
+            </div>
         </footer>
         <script src="js/main.js"></script>
     </body>

@@ -7,7 +7,7 @@
 }
 
 :root {
-    --ff-primary: 'Roboto Slab', serif;
+    --ff-primary: 'Montserrat', sans-serif;
     --ff-secondary: 'Lora', serif;
 
     --fw-reg: 400;
@@ -44,8 +44,8 @@ html {
 
 body {
     margin: 0;
-    background-color: var(--clr-light);
-    color: var(--clr-dark);
+    background: #1f2255;
+    color: var(--clr-light);
     font-family: var(--ff-primary);
     font-size: var(--fs-body);
     line-height: 1.6;
