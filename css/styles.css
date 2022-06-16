@@ -1,6 +1,7 @@
 main {
   padding: 30px;
   width: 350px;
+  margin: auto;
 }
 
 h3 {
@@ -35,6 +36,8 @@ h3 {
 }
 
 footer {
+  margin: auto;
+  width: 350px;
   font-size: 10px;
   display: flex;
   align-items: flex-end;
