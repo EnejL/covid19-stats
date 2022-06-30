@@ -9,8 +9,10 @@ async function fetchData() {
 
     document.getElementById('date').innerHTML = day + '/' + month + '/' + year;
     document.getElementById('tests-hag').innerHTML = record.testsTodayHAT.value;
-    document.getElementById('tests-pcr').innerHTML = record.testsToday.year;
+    document.getElementById('tests-pcr').innerHTML = record.testsToday.value;
     document.getElementById('active-cases').innerHTML = record.casesActive.subValues.in;
     document.getElementById('total-deaths').innerHTML = record.deceasedToDate.value;
+    document.getElementById('hospitalised').innerHTML = record.hospitalizedCurrent.value;
+    document.getElementById('in-icu').innerHTML = record.icuCurrent.value;
 }
 fetchData();

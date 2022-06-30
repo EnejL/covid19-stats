@@ -26,13 +26,16 @@ h3 {
 }
 
 .label {
-  flex-grow: 1;
+  flex: 1 0;
 }
 
 .value {
   font-weight: bold;
   text-align: right;
   width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 footer {
