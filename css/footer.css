@@ -1,0 +1,27 @@
+footer {
+	margin: auto;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	z-index: 99999;
+	font-size: 10px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	padding: 5px 10px;
+	color: var(--clr-light);
+	background-color: var(--clr-bg-main);
+}
+
+.data-source-container {
+	display: flex;
+}
+
+footer p {
+	margin: 0;
+}
+
+footer a {
+	margin-left: 5px;
+	color: inherit;
+}

@@ -1,4 +1,6 @@
 @import "styles.css";
+@import "tabs.css";
+@import "footer.css";
 
 *,
 *::before,
@@ -18,6 +20,9 @@
     --clr-darker: #111111;
     --clr-accent: #16e0bd;
 
+    --clr-bg-main: #1f2255;
+    --clr-bg-accent: #565bba;
+
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
     --fs-h3: 1.25rem;
@@ -25,6 +30,8 @@
 
     --bs: .25em .25em .75em rgba(0, 0, 0, .75),
           .125em .125em .25em rgba(0, 0, 0, .15);
+
+    --border-rds-main: 10px;
 }
 
 @media (min-width: 768px) {
@@ -44,7 +51,7 @@ html {
 
 body {
     margin: 0;
-    background: #1f2255;
+    background: var(--clr-bg-main);
     color: var(--clr-light);
     font-family: var(--ff-primary);
     font-size: var(--fs-body);
