@@ -13,8 +13,10 @@
     <body>
         <main>
             <div class="main-header">
-                <h3>Covid-19 stanje v Sloveniji na dan</h3>
-                <span id="date"></span>
+                <h3 class="header-title">
+                    Covid-19 stanje v Sloveniji na dan
+<!--                    <img src="./icons/coronavirus-icon.png" alt="" style="width: 30px; margin-left: auto">-->
+                </h3>
             </div>
             <div class="tabs">
                 <input id="tab1" type="radio" name="covid-tab" class="tab-switch" checked />
@@ -41,22 +43,36 @@
                 </nav>
                 <section>
                     <div class="tab1 tab-content">
+                        <span class="tab-date" id="date1"></span>
                         <div class="table table-bordered">
                             <div class="table-row">
                                 <div class="label">Testi na dan: HAT</div>
-                                <div class="value"><span class="value-inside" id="tests-hag"></span></div>
+                                <div class="value-wrapper">
+                                    <div class="value value-child" id="tests-hat-positive"></div>
+                                    <div class="value value-child" id="tests-hat-total">
+                                    </div>
+                                </div>
                             </div>
                             <div class="table-row">
                                 <div class="label">Testi na dan: PCR</div>
-                                <div class="value"><span class="value-inside" id="tests-pcr"></span></div>
+                                <div class="value-wrapper">
+                                    <div class="value value-child" id="tests-pcr-positive"></div>
+                                    <div class="value value-child" id="tests-pcr-total">
+                                    </div>
+                                </div>
                             </div>
                             <div class="table-row">
-                                <div class="label">Aktivni primeri na dan</div>
-                                <div class="value"><span class="value-inside" id="active-cases"></span></div>
+                                <div class="label">7 dnevno povprečje</div>
+                                <div class="value-wrapper">
+                                    <div class="value value-child" id="7day-perc-positive"></div>
+                                    <div class="value value-child" id="7day-perc-incr">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="tab2 tab-content">
+                        <span class="tab-date" id="date2"></span>
                         <div class="table-row">
                             <div class="label">1. odmerek cepiva</div>
                             <div class="value-wrapper">
@@ -81,29 +97,39 @@
                         <div class="table-row">
                             <div class="label">Porabljenih odmerkov</div>
                             <div class="value-wrapper">
+                                <div class="value value-child" id="used-doses-day"></div>
                                 <div class="value value-child" id="used-doses-to-date"></div>
                             </div>
                         </div>
                     </div>
                     <div class="tab3 tab-content">
+                        <span class="tab-date" id="date3"></span>
                         <div class="table-row">
                             <div class="label">Trenutno hospitalizirani</div>
-                            <div class="value"><span class="value-inside" id="hospitalised"></span></div>
+                            <div class="value-wrapper">
+                                <div class="value value-child" id="hospitalised-day"></div>
+                                <div class="value value-child" id="hospitalised-total"></div>
+                            </div>
                         </div>
                         <div class="table-row">
                             <div class="label">Na intenzivni negi</div>
-                            <div class="value"><span class="value-inside" id="in-icu"></span></div>
+                            <div class="value-wrapper">
+                                <div class="value value-child" id="in-icu-day"></div>
+                                <div class="value value-child" id="in-icu-total"></div>
+                            </div>
                         </div>
                         <div class="table-row">
                             <div class="label">Skupno število umrlih</div>
-                            <div class="value"><span class="value-inside" id="total-deaths"></span></div>
+                            <div class="value-wrapper">
+                                <div class="value value-child" id="deaths-day"></div>
+                                <div class="value value-child" id="deaths-total"></div>
+                            </div>
                         </div>
                     </div>
                 </section>
             </div>
         </main>
         <footer>
-            <img src="./icons/coronavirus-icon.png" alt="" style="width: 50px">
             <div class="data-source-container">
                 <p>Vir podatkov:</p>
                 <a href="https://covid-19.sledilnik.org/sl/stats" target="_blank">COVID-19 Sledilnik</a>

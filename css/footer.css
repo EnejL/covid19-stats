@@ -3,14 +3,15 @@ footer {
 	font-size: 10px;
 	display: flex;
 	align-items: flex-end;
-	justify-content: space-between;
-	padding: 0 30px 30px 30px;
+	justify-content: flex-end;
+	padding: 0 15px;
 	color: var(--clr-light);
 	background-color: var(--clr-bg-main);
 }
 
 .data-source-container {
 	display: flex;
+	align-self: center;
 }
 
 footer p {

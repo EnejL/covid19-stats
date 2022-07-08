@@ -37,19 +37,27 @@ li.li-tab {
 	justify-content: center;
 	align-items: center;
 	padding: 10px 15px;
+	border-bottom: 1px solid transparent;
 }
 
 img.label-img {
-	width: 45px;
+	width: 35px;
 }
 
 .tabs ul li label:hover {
-	background: #dddddd;
+	background: rgba(151, 151, 151, .4);
 }
 
 .tab-content {
 	transition: all .3s;
-	/*padding-top: 20px;*/
+}
+
+span.tab-date {
+	width: 100%;
+	display: block;
+	text-align: center;
+	margin: 25px 0;
+	color: var(--clr-font-daily);
 }
 
 #tab1:checked ~ nav .tab1 label,

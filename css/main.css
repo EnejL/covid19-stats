@@ -21,6 +21,7 @@ body {
 
 body {
     margin: 0;
+    padding: 15px;
     background: var(--clr-bg-main);
     color: var(--clr-light);
     font-family: var(--ff-primary);
