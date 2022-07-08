@@ -1,9 +1,7 @@
-// fetching and manipulating the general data
+// fetching and manipulating the general data (cases and hospitalisations)
 async function fetchGenData() {
     const res = await fetch ("https://api.sledilnik.org/api/summary");
     const record = await res.json();
-
-    console.log(record);
 
     let year = record.vaccinationSummary.year;
     let month = record.vaccinationSummary.month;
@@ -51,7 +49,7 @@ async function fetchGenData() {
             dayName = month;
     }
 
-    document.getElementById('date').innerHTML = day + '. ' + monthName + '<br>' + year;
+    document.getElementById('date').innerHTML = day + '. ' + monthName + ' ' + year;
     document.getElementById('tests-hag').innerHTML = record.testsTodayHAT.value;
     document.getElementById('tests-pcr').innerHTML = record.testsToday.value;
     document.getElementById('active-cases').innerHTML = record.casesActive.subValues.in;
@@ -67,17 +65,18 @@ async function fetchVaxData() {
     const record = await res.json();
 
     let secondToLast = record[record.length - 2];
-    console.log(secondToLast);
+    let smallDaily = '<small class="daily">na dan</small>';
+    let smallTotal = '<small class="total">skupno</small>';
 
-    document.getElementById('1st-vax-day-administered').innerHTML = '<small>danes</small>' + secondToLast.administered.today;
-    document.getElementById('1st-vax-total-administered').innerHTML = '<small>skupno</small>' + secondToLast.administered.toDate.toLocaleString();
+    document.getElementById('1st-vax-day-administered').innerHTML = smallDaily + secondToLast.administered.today;
+    document.getElementById('1st-vax-total-administered').innerHTML = smallTotal + secondToLast.administered.toDate.toLocaleString();
 
-    document.getElementById('2nd-vax-day-administered').innerHTML = '<small>danes</small>' + secondToLast.administered2nd.today;
-    document.getElementById('2nd-vax-total-administered').innerHTML = '<small>skupno</small>' + secondToLast.administered2nd.toDate.toLocaleString();
+    document.getElementById('2nd-vax-day-administered').innerHTML = smallDaily + secondToLast.administered2nd.today;
+    document.getElementById('2nd-vax-total-administered').innerHTML = smallTotal + secondToLast.administered2nd.toDate.toLocaleString();
 
-    document.getElementById('3rd-vax-day-administered').innerHTML = '<small>danes</small>' + secondToLast.administered3rd.today;
-    document.getElementById('3rd-vax-total-administered').innerHTML = '<small>skupno</small>' + secondToLast.administered3rd.toDate.toLocaleString();
+    document.getElementById('3rd-vax-day-administered').innerHTML = smallDaily + secondToLast.administered3rd.today;
+    document.getElementById('3rd-vax-total-administered').innerHTML = smallTotal + secondToLast.administered3rd.toDate.toLocaleString();
 
-    document.getElementById('used-doses-to-date').innerHTML = secondToLast.usedToDate.toLocaleString();
+    document.getElementById('used-doses-to-date').innerHTML = smallTotal + secondToLast.usedToDate.toLocaleString();
 }
 fetchVaxData();

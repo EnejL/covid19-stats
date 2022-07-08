@@ -1,15 +1,28 @@
 main {
   padding: 30px;
-  width: 350px;
-  height: 500px;
-  margin: auto;
+  width: 450px;
+  height: auto;
   display: flex;
   flex-direction: column;
 }
 
+nav {
+  z-index: 999;
+  margin: 25px 0;
+}
+
+.main-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+span#date {
+  color: var(--clr-font-daily);
+}
+
 h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
+  margin: 0;
 }
 
 .table {
@@ -38,7 +51,7 @@ h3 {
 }
 
 .label {
-  flex: 1 0;
+  flex: 0 0 45%;
   display: flex;
   align-items: center;
 }
@@ -48,27 +61,45 @@ h3 {
 }
 
 .value-wrapper {
-  width: 100%;
   display: flex;
   justify-content: space-evenly;
+  flex-grow: 1;
+  padding: 5px 15px;
 }
 
 .value {
   font-weight: bold;
   text-align: right;
-  /*width: 80px;*/
   display: flex;
   flex-direction: column;
-  /*align-items: center;*/
-  /*justify-content: flex-end;*/
+  justify-content: center;
+  flex: 1;
+}
+
+span.value-inside {
+  width: 55px;
+  align-self: flex-end;
+  text-align: center;
 }
 
 .value-child {
   text-align: center;
   padding: 0;
+  width: 85px;
+}
+
+.value-right {
+  text-align: right;
 }
 
 small {
   font-size: 10px;
-  color: #19e1d9;
+}
+
+small.daily {
+  color: var(--clr-font-daily);
+}
+
+small.total {
+  color: var(--clr-font-total);
 }
