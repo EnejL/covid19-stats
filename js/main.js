@@ -14,7 +14,7 @@ async function fetchGenData() {
     let smallTotal      =   '<small class="total">skupaj</small>';
     let smallPositive   =   '<small class="positive">pozitivni</small>';
     let smallToday      =   '<small class="daily">na dan</small>';
-    let smallIncr       =   '<small class="total">prirast</small>';
+    let smallIncr       =   '<small class="total">razlika</small>';
 
     // looping through the months to have a correct month name
     let monthName;
@@ -59,12 +59,10 @@ async function fetchGenData() {
             dayName = month;
     }
 
-    console.log(record);
-
     // date of the data for tab1 and tab2 (cases and vaccinations)
-    document.getElementById('date1').innerHTML              = dayTest + '. ' + monthName + ' ' + year;
-    document.getElementById('date2').innerHTML              = dayVax + '. ' + monthName + ' ' + year;
-    document.getElementById('date3').innerHTML              = dayHosp + '. ' + monthName + ' ' + year;
+    document.getElementById('date1').innerHTML              = dayTest   + '. ' + monthName + ' ' + year;
+    document.getElementById('date2').innerHTML              = dayVax    + '. ' + monthName + ' ' + year;
+    document.getElementById('date3').innerHTML              = dayHosp   + '. ' + monthName + ' ' + year;
 
     // tests and active cases
     document.getElementById('tests-hat-positive').innerHTML = smallPositive     + record.testsTodayHAT.subValues.positive;
@@ -90,7 +88,6 @@ async function fetchVaxData() {
     const record = await res.json();
 
     let secondToLast = record[record.length - 2];
-    console.log(secondToLast);
 
     let smallDaily = '<small class="daily">na dan</small>';
     let smallTotal = '<small class="total">skupaj</small>';
