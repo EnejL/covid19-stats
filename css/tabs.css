@@ -21,6 +21,10 @@
 	justify-content: center;
 }
 
+li.li-tab {
+	width: calc(100% / 3);
+}
+
 .tab-label {
 	position: relative;
 	height: 100%;
