@@ -12,36 +12,124 @@
 
     <body>
         <main>
-            <h3>Covid-19 stanje v Sloveniji<br>na dan: <span id="date"></span></h3>
-            <div class="table table-bordered">
-                <div class="table-row">
-                    <div class="label">Testi na dan: HAG</div>
-                    <div class="value" id="tests-hag"></div>
-                </div>
-                <div class="table-row">
-                    <div class="label">Testi na dan: PCR</div>
-                    <div class="value" id="tests-pcr"></div>
-                </div>
-                <div class="table-row">
-                    <div class="label">Aktivni primeri na dan</div>
-                    <div class="value" id="active-cases"></div>
-                </div>
-                <div class="table-row">
-                    <div class="label">Skupno število umrlih</div>
-                    <div class="value" id="total-deaths"></div>
-                </div>
-                <div class="table-row">
-                    <div class="label">Trenutno hospitalizirani</div>
-                    <div class="value" id="hospitalised"></div>
-                </div>
-                <div class="table-row">
-                    <div class="label">Na intenzivni negi</div>
-                    <div class="value" id="in-icu"></div>
-                </div>
+            <div class="main-header">
+                <h3 class="header-title">
+                    Covid-19 stanje v Sloveniji na dan
+<!--                    <img src="./icons/coronavirus-icon.png" alt="" style="width: 30px; margin-left: auto">-->
+                </h3>
+            </div>
+            <div class="tabs">
+                <input id="tab1" type="radio" name="covid-tab" class="tab-switch" checked />
+                <input id="tab2" type="radio" name="covid-tab" class="tab-switch" />
+                <input id="tab3" type="radio" name="covid-tab" class="tab-switch" />
+                <nav>
+                    <ul>
+                        <li class="tab1 li-tab">
+                            <label for="tab1" class="tab-label">
+                                <img src="icons/pcr-test.png" alt="Covid testi" class="label-img">
+                            </label>
+                        </li>
+                        <li class="tab2 li-tab">
+                            <label for="tab2" class="tab-label">
+                                <img src="icons/vaccine.png" alt="Cepiva" class="label-img">
+                            </label>
+                        </li>
+                        <li class="tab3 li-tab">
+                            <label for="tab3" class="tab-label">
+                                <img src="icons/hospital.png" alt="Stanje v bolnisnicah" class="label-img">
+                            </label>
+                        </li>
+                    </ul>
+                </nav>
+                <section>
+                    <div class="tab1 tab-content">
+                        <span class="tab-date" id="date1"></span>
+                        <div class="table">
+                            <div class="table-row">
+                                <div class="label">Testi na dan: HAT</div>
+                                <div class="value-wrapper">
+                                    <div class="value value-child" id="tests-hat-positive"></div>
+                                    <div class="value value-child" id="tests-hat-total">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-row">
+                                <div class="label">Testi na dan: PCR</div>
+                                <div class="value-wrapper">
+                                    <div class="value value-child" id="tests-pcr-positive"></div>
+                                    <div class="value value-child" id="tests-pcr-total">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-row">
+                                <div class="label">7 dnevno povprečje</div>
+                                <div class="value-wrapper">
+                                    <div class="value value-child" id="7day-perc-positive"></div>
+                                    <div class="value value-child" id="7day-perc-incr">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab2 tab-content">
+                        <span class="tab-date" id="date2"></span>
+                        <div class="table-row">
+                            <div class="label">1. odmerek cepiva</div>
+                            <div class="value-wrapper">
+                                <div class="value value-child" id="1st-vax-day-administered"></div>
+                                <div class="value value-child" id="1st-vax-total-administered"></div>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="label">2. odmerek cepiva</div>
+                            <div class="value-wrapper">
+                                <div class="value value-child" id="2nd-vax-day-administered"></div>
+                                <div class="value value-child" id="2nd-vax-total-administered"></div>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="label">3. odmerek cepiva</div>
+                            <div class="value-wrapper">
+                                <div class="value value-child" id="3rd-vax-day-administered"></div>
+                                <div class="value value-child" id="3rd-vax-total-administered"></div>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="label">Porabljenih odmerkov</div>
+                            <div class="value-wrapper">
+                                <div class="value value-child" id="used-doses-day"></div>
+                                <div class="value value-child" id="used-doses-to-date"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab3 tab-content">
+                        <span class="tab-date" id="date3"></span>
+                        <div class="table-row">
+                            <div class="label">Trenutno hospitalizirani</div>
+                            <div class="value-wrapper">
+                                <div class="value value-child" id="hospitalised-day"></div>
+                                <div class="value value-child" id="hospitalised-total"></div>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="label">Na intenzivni negi</div>
+                            <div class="value-wrapper">
+                                <div class="value value-child" id="in-icu-day"></div>
+                                <div class="value value-child" id="in-icu-total"></div>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="label">Skupno število umrlih</div>
+                            <div class="value-wrapper">
+                                <div class="value value-child" id="deaths-day"></div>
+                                <div class="value value-child" id="deaths-total"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </main>
         <footer>
-            <img src="./icons/coronavirus-icon.png" alt="" style="width: 50px">
             <div class="data-source-container">
                 <p>Vir podatkov:</p>
                 <a href="https://covid-19.sledilnik.org/sl/stats" target="_blank">COVID-19 Sledilnik</a>

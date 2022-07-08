@@ -1,0 +1,67 @@
+/* tab styling */
+.tabs {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.tabs > input,
+.tabs section > div {
+	display: none;
+}
+
+#tab1:checked ~ section .tab1,
+#tab2:checked ~ section .tab2,
+#tab3:checked ~ section .tab3 {
+	display: block;
+}
+
+.tabs ul {
+	display: flex;
+	justify-content: center;
+}
+
+li.li-tab {
+	width: calc(100% / 3);
+}
+
+.tab-label {
+	position: relative;
+	height: 100%;
+	text-align: center;
+	color: var(--clr-light);
+	cursor: pointer;
+	transition: all .3s;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 15px;
+	border-bottom: 1px solid transparent;
+}
+
+img.label-img {
+	width: 35px;
+}
+
+.tabs ul li label:hover {
+	background: rgba(151, 151, 151, .4);
+}
+
+.tab-content {
+	transition: all .3s;
+}
+
+span.tab-date {
+	width: 100%;
+	display: block;
+	text-align: center;
+	margin: 25px 0;
+	color: var(--clr-font-daily);
+}
+
+#tab1:checked ~ nav .tab1 label,
+#tab2:checked ~ nav .tab2 label,
+#tab3:checked ~ nav .tab3 label {
+	border-bottom: 1px solid white;
+}
