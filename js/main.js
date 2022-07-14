@@ -14,8 +14,9 @@ async function fetchGenData() {
     let smallTotal      =   '<small class="total">skupaj</small>';
     let smallPositive   =   '<small class="positive">pozitivni</small>';
     let smallToday      =   '<small class="daily">na dan</small>';
-    let noData          =   '<small class="no-data">ni podatkov</small>'
     let smallIncr       =   '<small class="total">razlika</small>';
+
+    let noData          =   '<span class="no-data">ni podatkov</span>'
 
     // looping through the months to have a correct month name
     let monthName;
