@@ -73,10 +73,10 @@ async function fetchGenData() {
     document.getElementById('tests-pcr-total').innerHTML    = smallTotal        + record.testsToday.value.toLocaleString('sl-SI');
     document.getElementById('7day-perc-positive').innerHTML = smallPositive     + record.casesAvg7Days.value.toLocaleString('sl-SI', {maximumFractionDigits: 1});
 
+    // checking whether the 7 day average percentage has increased or decreased
     if (record.casesAvg7Days.diffPercentage > 0) {
         document.getElementById('7day-perc-incr').innerHTML = smallIncr         + '<span style="color: #bc0000;">' + record.casesAvg7Days.diffPercentage.toLocaleString('sl-SI', {maximumFractionDigits: 1}) + ' %' + '</span>';
     } else {
-        console.log("it is good");
         document.getElementById('7day-perc-incr').innerHTML = smallIncr         + '-' + '<span style="color: #20c01a;">' + record.casesAvg7Days.diffPercentage.toLocaleString('sl-SI', {maximumFractionDigits: 1}) + ' %' + '</span>';
     }
 
