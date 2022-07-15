@@ -95,6 +95,10 @@ small.positive {
   color: var(--clr-font-daily);
 }
 
+span.no-data {
+  font-size: 1.2rem;
+}
+
 small.total {
   color: var(--clr-font-total);
 }

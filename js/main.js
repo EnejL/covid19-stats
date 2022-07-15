@@ -16,7 +16,7 @@ async function fetchGenData() {
     let smallToday      =   '<small class="daily">na dan</small>';
     let smallIncr       =   '<small class="total">razlika</small>';
 
-    let noData          =   '<span class="no-data">ni podatkov</span>'
+    let noData          =   '<span class="no-data">ni podatka</span>'
 
     // looping through the months to have a correct month name
     let monthName;
@@ -67,9 +67,15 @@ async function fetchGenData() {
     document.getElementById('date3').innerHTML              = dayHosp   + '. ' + monthName + ' ' + year;
 
     // tests and active cases
-    document.getElementById('tests-hat-positive').innerHTML = smallPositive     + record.testsTodayHAT.subValues.length > 0 ? record.testsTodayHAT.subValues.positive.toLocaleString('sl-SI') : noData;
+    if (record.testsTodayHAT.subValues.length > 0) {
+        document.getElementById('tests-hat-positive').innerHTML = smallPositive     +  record.testsTodayHAT.subValues.positive.toLocaleString('sl-SI');
+        document.getElementById('tests-pcr-positive').innerHTML = smallPositive     +  record.testsToday.subValues.positive.toLocaleString('sl-SI');
+    } else {
+        document.getElementById('tests-hat-positive').innerHTML = smallPositive     +  noData;
+        document.getElementById('tests-pcr-positive').innerHTML = smallPositive     +  noData
+    }
+
     document.getElementById('tests-hat-total').innerHTML    = smallTotal        + record.testsTodayHAT.value.toLocaleString('sl-SI');
-    document.getElementById('tests-pcr-positive').innerHTML = smallPositive     + record.testsToday.subValues.length > 0 ? record.testsToday.subValues.positive.toLocaleString('sl-SI') : noData;
     document.getElementById('tests-pcr-total').innerHTML    = smallTotal        + record.testsToday.value.toLocaleString('sl-SI');
     document.getElementById('7day-perc-positive').innerHTML = smallPositive     + record.casesAvg7Days.value.toLocaleString('sl-SI', {maximumFractionDigits: 1});
 
