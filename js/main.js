@@ -16,6 +16,8 @@ async function fetchGenData() {
     let smallToday      =   '<small class="daily">na dan</small>';
     let smallIncr       =   '<small class="total">razlika</small>';
 
+    let noData          =   '<span class="no-data">ni podatka</span>'
+
     // looping through the months to have a correct month name
     let monthName;
     switch (month) {
@@ -65,20 +67,32 @@ async function fetchGenData() {
     document.getElementById('date3').innerHTML              = dayHosp   + '. ' + monthName + ' ' + year;
 
     // tests and active cases
-    document.getElementById('tests-hat-positive').innerHTML = smallPositive     + record.testsTodayHAT.subValues.positive;
-    document.getElementById('tests-hat-total').innerHTML    = smallTotal        + record.testsTodayHAT.value;
-    document.getElementById('tests-pcr-positive').innerHTML = smallPositive     + record.testsToday.subValues.positive;
-    document.getElementById('tests-pcr-total').innerHTML    = smallTotal        + record.testsToday.value;
+    if (record.testsTodayHAT.subValues.positive > 0) {
+        document.getElementById('tests-hat-positive').innerHTML = smallPositive     +  record.testsTodayHAT.subValues.positive.toLocaleString('sl-SI');
+        document.getElementById('tests-pcr-positive').innerHTML = smallPositive     +  record.testsToday.subValues.positive.toLocaleString('sl-SI');
+    } else {
+        document.getElementById('tests-hat-positive').innerHTML = smallPositive     +  noData;
+        document.getElementById('tests-pcr-positive').innerHTML = smallPositive     +  noData
+    }
+
+    document.getElementById('tests-hat-total').innerHTML    = smallTotal        + record.testsTodayHAT.value.toLocaleString('sl-SI');
+    document.getElementById('tests-pcr-total').innerHTML    = smallTotal        + record.testsToday.value.toLocaleString('sl-SI');
     document.getElementById('7day-perc-positive').innerHTML = smallPositive     + record.casesAvg7Days.value.toLocaleString('sl-SI', {maximumFractionDigits: 1});
-    document.getElementById('7day-perc-incr').innerHTML     = smallIncr         + record.casesAvg7Days.diffPercentage.toLocaleString('sl-SI') + '%';
+
+    // checking whether the 7 day average percentage has increased or decreased
+    if (record.casesAvg7Days.diffPercentage > 0) {
+        document.getElementById('7day-perc-incr').innerHTML = smallIncr         + '<span style="color: #bc0000;">' + record.casesAvg7Days.diffPercentage.toLocaleString('sl-SI', {maximumFractionDigits: 1}) + ' %' + '</span>';
+    } else {
+        document.getElementById('7day-perc-incr').innerHTML = smallIncr         + '-' + '<span style="color: #20c01a;">' + record.casesAvg7Days.diffPercentage.toLocaleString('sl-SI', {maximumFractionDigits: 1}) + ' %' + '</span>';
+    }
 
     // hospitalisations and deaths
-    document.getElementById('hospitalised-day').innerHTML   = smallToday    + record.hospitalizedCurrent.subValues.in;
-    document.getElementById('hospitalised-total').innerHTML = smallTotal    + record.hospitalizedCurrent.value;
-    document.getElementById('in-icu-day').innerHTML         = smallToday    + record.icuCurrent.subValues.in;
-    document.getElementById('in-icu-total').innerHTML       = smallTotal    + record.icuCurrent.value;
-    document.getElementById('deaths-day').innerHTML         = smallToday    + record.deceasedToDate.subValues.deceased;
-    document.getElementById('deaths-total').innerHTML       = smallTotal    + record.deceasedToDate.value;
+    document.getElementById('hospitalised-day').innerHTML   = smallToday    + record.hospitalizedCurrent.subValues.in.toLocaleString('sl-SI');
+    document.getElementById('hospitalised-total').innerHTML = smallTotal    + record.hospitalizedCurrent.value.toLocaleString('sl-SI');
+    document.getElementById('in-icu-day').innerHTML         = smallToday    + record.icuCurrent.subValues.in.toLocaleString('sl-SI');
+    document.getElementById('in-icu-total').innerHTML       = smallTotal    + record.icuCurrent.value.toLocaleString('sl-SI');
+    document.getElementById('deaths-day').innerHTML         = smallToday    + record.deceasedToDate.subValues.deceased.toLocaleString('sl-SI');
+    document.getElementById('deaths-total').innerHTML       = smallTotal    + record.deceasedToDate.value.toLocaleString('sl-SI');
 }
 fetchGenData();
 
@@ -93,16 +107,16 @@ async function fetchVaxData() {
     let smallTotal = '<small class="total">skupaj</small>';
     let administeredTotalToday = secondToLast.administered.today + secondToLast.administered2nd.today + secondToLast.administered3rd.today;
 
-    document.getElementById('1st-vax-day-administered').innerHTML   = smallDaily + secondToLast.administered.today;
+    document.getElementById('1st-vax-day-administered').innerHTML   = smallDaily + secondToLast.administered.today.toLocaleString('sl-SI');
     document.getElementById('1st-vax-total-administered').innerHTML = smallTotal + secondToLast.administered.toDate.toLocaleString('sl-SI');
 
-    document.getElementById('2nd-vax-day-administered').innerHTML   = smallDaily + secondToLast.administered2nd.today;
+    document.getElementById('2nd-vax-day-administered').innerHTML   = smallDaily + secondToLast.administered2nd.today.toLocaleString('sl-SI');
     document.getElementById('2nd-vax-total-administered').innerHTML = smallTotal + secondToLast.administered2nd.toDate.toLocaleString('sl-SI');
 
-    document.getElementById('3rd-vax-day-administered').innerHTML   = smallDaily + secondToLast.administered3rd.today;
+    document.getElementById('3rd-vax-day-administered').innerHTML   = smallDaily + secondToLast.administered3rd.today.toLocaleString('sl-SI');
     document.getElementById('3rd-vax-total-administered').innerHTML = smallTotal + secondToLast.administered3rd.toDate.toLocaleString('sl-SI');
 
-    document.getElementById('used-doses-day').innerHTML             = smallDaily + administeredTotalToday;
+    document.getElementById('used-doses-day').innerHTML             = smallDaily + administeredTotalToday.toLocaleString('sl-SI');
     document.getElementById('used-doses-to-date').innerHTML         = smallTotal + secondToLast.usedToDate.toLocaleString('sl-SI');
 }
 fetchVaxData();
