@@ -67,7 +67,7 @@ async function fetchGenData() {
     document.getElementById('date3').innerHTML              = dayHosp   + '. ' + monthName + ' ' + year;
 
     // tests and active cases
-    if (record.testsTodayHAT.subValues.length > 0) {
+    if (record.testsTodayHAT.subValues.positive > 0) {
         document.getElementById('tests-hat-positive').innerHTML = smallPositive     +  record.testsTodayHAT.subValues.positive.toLocaleString('sl-SI');
         document.getElementById('tests-pcr-positive').innerHTML = smallPositive     +  record.testsToday.subValues.positive.toLocaleString('sl-SI');
     } else {
