@@ -83,7 +83,7 @@ async function fetchGenData() {
     if (record.casesAvg7Days.diffPercentage > 0) {
         document.getElementById('7day-perc-incr').innerHTML = smallIncr         + '<span style="color: #bc0000;">' + record.casesAvg7Days.diffPercentage.toLocaleString('sl-SI', {maximumFractionDigits: 1}) + ' %' + '</span>';
     } else {
-        document.getElementById('7day-perc-incr').innerHTML = smallIncr         + '-' + '<span style="color: #20c01a;">' + record.casesAvg7Days.diffPercentage.toLocaleString('sl-SI', {maximumFractionDigits: 1}) + ' %' + '</span>';
+        document.getElementById('7day-perc-incr').innerHTML = smallIncr         + '<span style="color: #20c01a;">' + record.casesAvg7Days.diffPercentage.toLocaleString('sl-SI', {maximumFractionDigits: 1}) + ' %' + '</span>';
     }
 
     // hospitalisations and deaths
