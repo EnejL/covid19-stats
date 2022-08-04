@@ -5,7 +5,6 @@ async function fetchGenData() {
 
     // fetching the dates
     let dayTest     = record.testsToday.day;
-    let dayVax      = record.vaccinationSummary.day;
     let dayHosp     = record.hospitalizedCurrent.day;
     let month       = record.testsToday.month;
     let year        = record.testsToday.year;
@@ -61,9 +60,8 @@ async function fetchGenData() {
             dayName = month;
     }
 
-    // date of the data for tab1 and tab2 (cases and vaccinations)
+    // date of the data for tab1 and tab3 (cases and hospitalisations)
     document.getElementById('date1').innerHTML              = dayTest   + '. ' + monthName + ' ' + year;
-    document.getElementById('date2').innerHTML              = dayVax    + '. ' + monthName + ' ' + year;
     document.getElementById('date3').innerHTML              = dayHosp   + '. ' + monthName + ' ' + year;
 
     // tests and active cases
@@ -82,8 +80,10 @@ async function fetchGenData() {
     // checking whether the 7 day average percentage has increased or decreased
     if (record.casesAvg7Days.diffPercentage > 0) {
         document.getElementById('7day-perc-incr').innerHTML = smallIncr         + '<span style="color: #bc0000;">' + record.casesAvg7Days.diffPercentage.toLocaleString('sl-SI', {maximumFractionDigits: 1}) + ' %' + '</span>';
-    } else {
+    } else if (record.casesAvg7Days.diffPercentage < 0) {
         document.getElementById('7day-perc-incr').innerHTML = smallIncr         + '<span style="color: #20c01a;">' + record.casesAvg7Days.diffPercentage.toLocaleString('sl-SI', {maximumFractionDigits: 1}) + ' %' + '</span>';
+    } else {
+        document.getElementById('7day-perc-incr').innerHTML = smallIncr         + '<span style="color: #ffffff;">' + record.casesAvg7Days.diffPercentage.toLocaleString('sl-SI', {maximumFractionDigits: 1}) + ' %' + '</span>';
     }
 
     // hospitalisations and deaths
@@ -103,9 +103,58 @@ async function fetchVaxData() {
 
     let secondToLast = record[record.length - 2];
 
+    let dayVax = secondToLast.day;
+    let monthVax = secondToLast.month;
+    let yearVax = secondToLast.year;
     let smallDaily = '<small class="daily">na dan</small>';
     let smallTotal = '<small class="total">skupaj</small>';
     let administeredTotalToday = secondToLast.administered.today + secondToLast.administered2nd.today + secondToLast.administered3rd.today;
+
+    // looping through the months to have a correct month name
+    let monthVaxName;
+    switch (monthVax) {
+        case 1:
+            monthVaxName = 'januar'
+            break;
+        case 2:
+            monthVaxName = 'februar'
+            break;
+        case 3:
+            monthVaxName = 'marec'
+            break;
+        case 4:
+            monthVaxName = 'april'
+            break;
+        case 5:
+            monthVaxName = 'maj'
+            break;
+        case 6:
+            monthVaxName = 'junij'
+            break;
+        case 7:
+            monthVaxName = 'julij'
+            break;
+        case 8:
+            monthVaxName = 'avgust'
+            break;
+        case 9:
+            monthVaxName = 'september'
+            break;
+        case 10:
+            monthVaxName = 'oktober'
+            break;
+        case 11:
+            monthVaxName = 'november'
+            break;
+        case 12:
+            monthVaxName = 'december'
+            break;
+        default:
+            monthVaxName = '';
+    }
+
+    // date of the data for tab2 (vaccinations)
+    document.getElementById('date2').innerHTML = dayVax    + '. ' + monthVaxName + ' ' + yearVax;
 
     document.getElementById('1st-vax-day-administered').innerHTML   = smallDaily + secondToLast.administered.today.toLocaleString('sl-SI');
     document.getElementById('1st-vax-total-administered').innerHTML = smallTotal + secondToLast.administered.toDate.toLocaleString('sl-SI');
