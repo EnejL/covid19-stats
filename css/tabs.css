@@ -52,6 +52,16 @@ img.label-img {
 	transition: all .3s;
 }
 
+span.warning-label {
+	background: var(--clr-bg-danger);
+	padding: 5px 10px;
+	margin-bottom: 25px;
+	border-radius: 6px;
+	font-size: 12px;
+	display: flex;
+	justify-content: center;
+}
+
 span.tab-date {
 	width: 100%;
 	display: block;
