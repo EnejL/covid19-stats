@@ -31,12 +31,12 @@
                         </li>
                         <li class="tab2 li-tab">
                             <label for="tab2" class="tab-label">
-                                <img src="icons/vaccine.png" alt="Cepiva" class="label-img">
+                                <img src="icons/hospital.png" alt="Stanje v bolnisnicah" class="label-img">
                             </label>
                         </li>
                         <li class="tab3 li-tab">
                             <label for="tab3" class="tab-label">
-                                <img src="icons/hospital.png" alt="Stanje v bolnisnicah" class="label-img">
+                                <img src="icons/vaccine.png" alt="Cepiva" class="label-img">
                             </label>
                         </li>
                     </ul>
@@ -72,7 +72,34 @@
                         </div>
                     </div>
                     <div class="tab2 tab-content">
+                        <span class="tab-date" id="date3"></span>
+                        <div class="table-row">
+                            <div class="label">Hospitalizirani</div>
+                            <div class="value-wrapper">
+                                <div class="value value-child" id="hospitalised-day"></div>
+                                <div class="value value-child" id="hospitalised-total"></div>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="label">Intenzivna nega</div>
+                            <div class="value-wrapper">
+                                <div class="value value-child" id="in-icu-day"></div>
+                                <div class="value value-child" id="in-icu-total"></div>
+                            </div>
+                        </div>
+                        <div class="table-row">
+                            <div class="label">Število umrlih</div>
+                            <div class="value-wrapper">
+                                <div class="value value-child" id="deaths-day"></div>
+                                <div class="value value-child" id="deaths-total"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab3 tab-content">
                         <span class="tab-date" id="date2"></span>
+                        <span class="warning-label">
+                            Pozor: podatki o cepljenju niso ažurni!
+                        </span>
                         <div class="table-row">
                             <div class="label">1. odmerek cepiva</div>
                             <div class="value-wrapper">
@@ -99,30 +126,6 @@
                             <div class="value-wrapper">
                                 <div class="value value-child" id="used-doses-day"></div>
                                 <div class="value value-child" id="used-doses-to-date"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab3 tab-content">
-                        <span class="tab-date" id="date3"></span>
-                        <div class="table-row">
-                            <div class="label">Hospitalizirani</div>
-                            <div class="value-wrapper">
-                                <div class="value value-child" id="hospitalised-day"></div>
-                                <div class="value value-child" id="hospitalised-total"></div>
-                            </div>
-                        </div>
-                        <div class="table-row">
-                            <div class="label">Intenzivna nega</div>
-                            <div class="value-wrapper">
-                                <div class="value value-child" id="in-icu-day"></div>
-                                <div class="value value-child" id="in-icu-total"></div>
-                            </div>
-                        </div>
-                        <div class="table-row">
-                            <div class="label">Število umrlih</div>
-                            <div class="value-wrapper">
-                                <div class="value value-child" id="deaths-day"></div>
-                                <div class="value value-child" id="deaths-total"></div>
                             </div>
                         </div>
                     </div>
